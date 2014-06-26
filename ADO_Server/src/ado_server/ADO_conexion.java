@@ -48,14 +48,14 @@ public class ADO_conexion extends Thread{
                 switch(nCodigo){
                     case 1:
                         nick=sTrama;
-                        MSGestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
+                        ADO_gestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
                         break;
                     case 2:
                         sTrama="<" + nick + "> - " + sTrama;
-                        MSGestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
+                        ADO_gestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
                         break;
                     case 3:
-                        MSGestorConexiones.getInstance().desconecta(this);
+                        ADO_gestorConexiones.getInstance().desconecta(this);
                         break;
                 }
                 
