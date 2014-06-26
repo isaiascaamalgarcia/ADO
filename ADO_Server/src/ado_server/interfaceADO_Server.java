@@ -24,7 +24,7 @@ public class interfaceADO_Server extends javax.swing.JFrame {
         if (servidor==null){
             servidor = new ADO_server(this, 4000);
             servidor.start();
-            ConexDatabase.
+            
         }
     }
 

@@ -6,12 +6,14 @@
 
 package Cliente;
 
+import javax.swing.DefaultListModel;
+
 /**
  *
  * @author Alejandro
  */
 public class Ventas extends javax.swing.JFrame {
-
+    DefaultListModel modelo = new DefaultListModel();
     /**
      * Creates new form Ventas
      */
@@ -333,6 +335,18 @@ public class Ventas extends javax.swing.JFrame {
     /**
      * @param args the command line arguments
      */
+    public void mensajeRecibido(String sMensaje){
+        //jTextArea1.append(sMensaje + "\n");
+    }
+    
+    public void nuevaPersona(String nick){
+        modelo.addElement(nick);
+    }
+    
+    public void borrarPersona(int nPos){
+        modelo.remove(nPos);
+    }
+    
     public static void main(String args[]) {
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">

@@ -6,12 +6,22 @@
 
 package Cliente;
 
+import java.io.DataOutputStream;
+import java.net.Socket;
+import javax.swing.JOptionPane;
+
 /**
  *
  * @author Alejandro
  */
 public class Login extends javax.swing.JFrame {
-
+    
+    private int puerto;
+    private String servidor;
+    private Socket socketEscucha;
+    private boolean estado;
+    Ventas ventana;
+    private String nickName;
     /**
      * Creates new form Login
      */
@@ -98,11 +108,22 @@ public class Login extends javax.swing.JFrame {
         boolean session = false;
         usuario = jTextField1.getText();
         password = String.valueOf(jPasswordField1.getPassword());
+        enviarDatos(2,usuario);
         if(session){
             
         }
     }//GEN-LAST:event_jButton1ActionPerformed
 
+    public void enviarDatos(int code, String data){
+        try{
+            DataOutputStream salidaDatos=new DataOutputStream(socketEscucha.getOutputStream());
+            salidaDatos.writeInt(code);
+            salidaDatos.writeUTF(data);
+        }catch(Exception e){
+            JOptionPane.showMessageDialog(ventana, "No se pudo enviar el mensaje");
+        }
+        
+    }
     /**
      * @param args the command line arguments
      */
