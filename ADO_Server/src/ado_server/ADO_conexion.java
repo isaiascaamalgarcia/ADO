@@ -51,7 +51,8 @@ public class ADO_conexion extends Thread{
                         ADO_gestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
                         break;
                     case 2:
-                        sTrama="<" + nick + "> - " + sTrama;
+                        //sTrama= nick + sTrama;
+                        //aqui hacer la consulta y dar el valor de la contraseña a la variable sTrama
                         ADO_gestorConexiones.getInstance().enviarTrama(nCodigo, sTrama);
                         break;
                     case 3:
