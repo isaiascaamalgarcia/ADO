@@ -48,7 +48,7 @@ public class ConexDatabase {
             System.out.println("Error en los statements"+e);
         }
     }
-    public void consultarVenta(String empleado){
+    public void consultarVentaEmpleados(String empleado){
         try{
             Statement comando = conex.createStatement();
             try (ResultSet row = comando.executeQuery("Select * from ventas where empleado_venta='"+empleado+"';")) {
@@ -60,11 +60,23 @@ public class ConexDatabase {
             System.out.println(e);
         }
     }
+    public void consultarVenta(){
+        try{
+            Statement comando = conex.createStatement();
+            ResultSet row = comando.executeQuery("Select * from ventas");
+            while(row.next()){
+                System.out.println("ID venta = "+ row.getObject("id_venta")+" Empleado = "+ row.getObject("empleado_venta"));
+            }
+            row.close();
+        }catch(SQLException e){
+            
+        }
+    }
     public static void main(String[] args){
         ConexDatabase use = new ConexDatabase();
         
         //use.insertVenta("ramon", 2, USER, USER, USER, 22, 120);
-        use.consultarVenta("ramon");
+        use.consultarVentaEmpleados("ramon");
         use.cerrarConex();
     }
 }
