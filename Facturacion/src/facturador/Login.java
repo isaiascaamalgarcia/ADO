@@ -68,6 +68,7 @@ public class Login extends javax.swing.JFrame {
         });
         getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(70, 230, 110, 30));
 
+        Close.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
         Close.setText("Cerrar");
         Close.addMouseListener(new java.awt.event.MouseAdapter() {
             public void mouseClicked(java.awt.event.MouseEvent evt) {
@@ -184,13 +185,15 @@ public class Login extends javax.swing.JFrame {
             session = model.CheckSession(user, pass);
             if(session){
                 if(admin = model.isAdmin()){
-                    JOptionPane.showMessageDialog(null, "es una admnistrador");
-                    Menu facturacion = new Menu();
-                    facturacion.setVisible(true);
+                    Principal vista = new Principal();
+                    vista.setVisible(true);
+                    this.dispose();
                 }
                 else
                 {
-                    
+                    Principal2 mostrar = new Principal2();
+                    mostrar.setVisible(true);
+                    this.dispose();
                 }
             }else{
                 AlertMessage.setText("Usuario no registrado");

@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ConexDBase {
     public static final String USER = "root";
-    public static final String PASS = "g4rs14";
+    public static final String PASS = "";
     public static final String DBASE = "carwash";
     public static final String URL = "jdbc:mysql://localhost/" + DBASE;
     boolean admin;
@@ -36,7 +36,7 @@ public class ConexDBase {
                 System.out.println("Usuario existe");
                 if(pass_dbase.equals(password)){
                     sudo = String.valueOf(row.getObject("tipo_de_usuario"));
-                    if(sudo.equals("sudo")){
+                    if(sudo.equals("Admin")){
                         admin = true;
                     }else
                     {

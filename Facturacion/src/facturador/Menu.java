@@ -98,9 +98,10 @@ public class Menu extends javax.swing.JFrame {
         Logo = new javax.swing.JLabel();
         Image3 = new javax.swing.JLabel();
         AlertMessage = new javax.swing.JLabel();
+        jLabel13 = new javax.swing.JLabel();
         Background = new javax.swing.JLabel();
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setDefaultCloseOperation(javax.swing.WindowConstants.DISPOSE_ON_CLOSE);
         setUndecorated(true);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
@@ -301,6 +302,16 @@ public class Menu extends javax.swing.JFrame {
         AlertMessage.setForeground(new java.awt.Color(255, 255, 255));
         AlertMessage.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         getContentPane().add(AlertMessage, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 380, 750, 20));
+
+        jLabel13.setFont(new java.awt.Font("Tahoma", 1, 12)); // NOI18N
+        jLabel13.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel13.setText("Cerrar");
+        jLabel13.addMouseListener(new java.awt.event.MouseAdapter() {
+            public void mouseClicked(java.awt.event.MouseEvent evt) {
+                jLabel13MouseClicked(evt);
+            }
+        });
+        getContentPane().add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(670, 10, 60, -1));
 
         Background.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/bgmenu.PNG"))); // NOI18N
         getContentPane().add(Background, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 750, 400));
@@ -509,6 +520,11 @@ public class Menu extends javax.swing.JFrame {
             FieldTotal.setText(dosDecimas.format(stot));
         }
     }//GEN-LAST:event_FieldCantActionPerformed
+
+    private void jLabel13MouseClicked(java.awt.event.MouseEvent evt) {//GEN-FIRST:event_jLabel13MouseClicked
+        // TODO add your handling code here:
+        this.dispose();
+    }//GEN-LAST:event_jLabel13MouseClicked
     public boolean CheckRFC(String rfc){
         if(rfc.length() == 13){
             ErrorRFC.setVisible(false);
@@ -634,6 +650,7 @@ public class Menu extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
