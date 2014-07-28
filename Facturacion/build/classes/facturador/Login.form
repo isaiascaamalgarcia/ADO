@@ -65,9 +65,12 @@
     </Component>
     <Component class="javax.swing.JLabel" name="Close">
       <Properties>
+<<<<<<< HEAD
         <Property name="font" type="java.awt.Font" editor="org.netbeans.beaninfo.editors.FontEditor">
           <Font name="Tahoma" size="12" style="1"/>
         </Property>
+=======
+>>>>>>> 5c21dbce4d03e1319ee7abc9c62e2cc14ded1b04
         <Property name="text" type="java.lang.String" value="Cerrar"/>
       </Properties>
       <Events>
