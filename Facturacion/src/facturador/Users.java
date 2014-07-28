@@ -51,6 +51,7 @@ public class Users extends javax.swing.JFrame {
         jButton3 = new javax.swing.JButton();
         jTextField3 = new javax.swing.JTextField();
         jButton4 = new javax.swing.JButton();
+        jLabel6 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -69,7 +70,9 @@ public class Users extends javax.swing.JFrame {
 
         jLabel1.setText("Nombre");
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 50, -1, 20));
-        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 50, 110, -1));
+
+        jTextField1.setBorder(null);
+        getContentPane().add(jTextField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 50, 100, 20));
 
         jLabel2.setText("Apellido");
         getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 80, -1, 20));
@@ -82,9 +85,15 @@ public class Users extends javax.swing.JFrame {
 
         jLabel5.setText("Repita la contraseña");
         getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 160, -1, -1));
-        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(290, 180, 170, -1));
-        getContentPane().add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 180, 160, -1));
-        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 80, 110, -1));
+
+        jPasswordField1.setBorder(null);
+        getContentPane().add(jPasswordField1, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 180, 160, 20));
+
+        jPasswordField2.setBorder(null);
+        getContentPane().add(jPasswordField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 180, 150, 20));
+
+        jTextField2.setBorder(null);
+        getContentPane().add(jTextField2, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 80, 100, 20));
 
         jButton1.setText("Agregar");
         jButton1.addActionListener(new java.awt.event.ActionListener() {
@@ -109,7 +118,9 @@ public class Users extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton3, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 100, 80, -1));
-        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(110, 110, 110, -1));
+
+        jTextField3.setBorder(null);
+        getContentPane().add(jTextField3, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 110, 100, 20));
 
         jButton4.setText("Guarda");
         jButton4.setEnabled(false);
@@ -119,6 +130,9 @@ public class Users extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jButton4, new org.netbeans.lib.awtextra.AbsoluteConstraints(300, 130, 80, -1));
+
+        jLabel6.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/users.PNG"))); // NOI18N
+        getContentPane().add(jLabel6, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 540, 500));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -294,6 +308,7 @@ public class Users extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JPasswordField jPasswordField1;
     private javax.swing.JPasswordField jPasswordField2;
     private javax.swing.JScrollPane jScrollPane1;
