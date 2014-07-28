@@ -56,7 +56,7 @@ public class ConexDBase {
             comand.executeUpdate("insert into factura values('"+folio+"','"+rfc+"','"+nombre+"','"+direccion+"','"+email+"','"+cod_postal+"','"+nacionalidad+"','"+servicio+"','"+cantidad+"','"+costo+"','"+subtotal+"','"+total+"','"+comentario+"','"+estado_factura+"',now())");
             //conect.close();
             return true;
-        } catch (Exception e) {
+        } catch (SQLException e) {
             System.out.println(e);
         }
         return false;
