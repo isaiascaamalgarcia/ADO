@@ -6,7 +6,7 @@ import javax.swing.table.DefaultTableModel;
 
 public class ConexDBase {
     public static final String USER = "root";
-    public static final String PASS = "";
+    public static final String PASS = "g4rs14";
     public static final String DBASE = "carwash";
     public static final String URL = "jdbc:mysql://localhost/" + DBASE;
     boolean admin;
