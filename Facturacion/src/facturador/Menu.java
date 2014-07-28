@@ -11,6 +11,7 @@ import java.awt.Image;
 import javax.swing.Icon;
 import javax.swing.ImageIcon;
 import java.sql.*;
+import java.text.DecimalFormat;
 import java.util.Date;
 
 /**
@@ -503,8 +504,9 @@ public class Menu extends javax.swing.JFrame {
             double cant = Double.valueOf(FieldCant.getText());
             double cost = Double.valueOf(FieldCost.getText());
             double stot = cant * cost;
-            FieldStotal.setText(String.valueOf(stot));
-            FieldTotal.setText(String.valueOf(stot));
+            DecimalFormat dosDecimas = new DecimalFormat("0.00");
+            FieldStotal.setText(dosDecimas.format(stot));
+            FieldTotal.setText(dosDecimas.format(stot));
         }
     }//GEN-LAST:event_FieldCantActionPerformed
     public boolean CheckRFC(String rfc){

@@ -43,17 +43,18 @@ public class Factura extends javax.swing.JFrame {
         LDirec.setText(Data.getDIRECCION());
         LEmail.setText(Data.getEMAIL());
         LNacionalidad.setText(Data.getNACIONALIDAD());
-        
         LService.setText(Data.getSERVICIO());
         LCost.setText(Data.getCOSTO());
         LCant.setText(Data.getCANTIDAD());
         LSubt.setText(Data.getSUBTOTAL());
         Ltotal.setText(Data.getTOTAL());
         LComent.setText(Data.getCOMENTARIO());
-        Firma_Cliente.setText(LNombre.getText());
-        
+        //Firma_Cliente.setText("Firma Cliente"/*LNombre.getText()*/);
+        parseNumToLetter total = new parseNumToLetter(Ltotal.getText());
+        LImport.setText(total.run());
         this.setLocationRelativeTo(null);
-        this.setSize(650, 765);
+        this.setSize(650, 715);
+        jButton1.requestFocus();
     }
 
     /**
@@ -80,7 +81,6 @@ public class Factura extends javax.swing.JFrame {
         LDirec = new javax.swing.JLabel();
         LRFC = new javax.swing.JLabel();
         LNombre = new javax.swing.JLabel();
-        LComent = new javax.swing.JLabel();
         jLabel20 = new javax.swing.JLabel();
         jLabel19 = new javax.swing.JLabel();
         jLabel18 = new javax.swing.JLabel();
@@ -93,9 +93,11 @@ public class Factura extends javax.swing.JFrame {
         LblRFC = new javax.swing.JLabel();
         LblNombre = new javax.swing.JLabel();
         jLabel12 = new javax.swing.JLabel();
-        Firma_Cliente = new javax.swing.JLabel();
         LFecha = new javax.swing.JLabel();
         LFolio = new javax.swing.JLabel();
+        JLcodigoQR = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        LComent = new javax.swing.JTextArea();
         jLabel13 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -108,7 +110,7 @@ public class Factura extends javax.swing.JFrame {
                 jButton1ActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 699, -1, -1));
+        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 649, -1, -1));
 
         JPfactura.setPreferredSize(new java.awt.Dimension(612, 792));
         JPfactura.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -161,71 +163,81 @@ public class Factura extends javax.swing.JFrame {
         LNombre.setText("jLabel1");
         JPfactura.add(LNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(210, 220, 350, -1));
 
-        LComent.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
-        LComent.setText("Comentario");
-        LComent.setVerticalAlignment(javax.swing.SwingConstants.TOP);
-        JPfactura.add(LComent, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, 370, 100));
-
-        jLabel20.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        jLabel20.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         jLabel20.setText("Total");
         JPfactura.add(jLabel20, new org.netbeans.lib.awtextra.AbsoluteConstraints(410, 530, -1, -1));
 
-        jLabel19.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        jLabel19.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         jLabel19.setText("Subtotal");
         JPfactura.add(jLabel19, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 490, -1, -1));
 
-        jLabel18.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        jLabel18.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         jLabel18.setText("Cantidad");
         JPfactura.add(jLabel18, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 465, -1, -1));
 
-        jLabel17.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        jLabel17.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         jLabel17.setText("Costo");
         JPfactura.add(jLabel17, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 440, -1, -1));
 
-        jLabel16.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        jLabel16.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         jLabel16.setText("Servicio");
         JPfactura.add(jLabel16, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 415, -1, -1));
 
-        jLabel15.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        jLabel15.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         jLabel15.setText("Correo electronico");
         JPfactura.add(jLabel15, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 320, -1, -1));
 
-        jLabel14.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        jLabel14.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         jLabel14.setText("Nacionalidad");
         JPfactura.add(jLabel14, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 300, -1, -1));
 
-        jLabel11.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        jLabel11.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         jLabel11.setText("Codigo Postal");
         JPfactura.add(jLabel11, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 280, -1, -1));
 
-        jLabel9.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        jLabel9.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         jLabel9.setText("Direccion");
         JPfactura.add(jLabel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 260, -1, -1));
 
-        LblRFC.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        LblRFC.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         LblRFC.setText("RFC");
         JPfactura.add(LblRFC, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 240, -1, -1));
 
-        LblNombre.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        LblNombre.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         LblNombre.setText("Nombre");
         JPfactura.add(LblNombre, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
-        jLabel12.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
-        jLabel12.setText("importe: ");
+        jLabel12.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
+        jLabel12.setText("Cantidad en letras");
         JPfactura.add(jLabel12, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 530, -1, -1));
 
-        Firma_Cliente.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
-        Firma_Cliente.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        Firma_Cliente.setText("Firma");
-        JPfactura.add(Firma_Cliente, new org.netbeans.lib.awtextra.AbsoluteConstraints(466, 730, 130, -1));
-
-        LFecha.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        LFecha.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         LFecha.setText("fecha");
         JPfactura.add(LFecha, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 140, 150, -1));
 
-        LFolio.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        LFolio.setFont(new java.awt.Font("Rockwell", 1, 16)); // NOI18N
         LFolio.setText("Folio");
         JPfactura.add(LFolio, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 140, 150, -1));
+        JPfactura.add(JLcodigoQR, new org.netbeans.lib.awtextra.AbsoluteConstraints(456, 633, 110, 110));
+        ImageIcon image = new ImageIcon(getClass().getResource("/img/qr.jpg"));
+        Image imgEscalada = image.getImage().getScaledInstance(110, 110, Image.SCALE_SMOOTH);
+        Icon iconoScalado = new ImageIcon(imgEscalada);
+        JLcodigoQR.setIcon(iconoScalado);
+
+        jScrollPane2.setBorder(null);
+
+        LComent.setEditable(false);
+        LComent.setColumns(20);
+        LComent.setFont(new java.awt.Font("Rockwell", 0, 16)); // NOI18N
+        LComent.setLineWrap(true);
+        LComent.setRows(5);
+        LComent.setBorder(null);
+        LComent.setOpaque(false);
+        LComent.setPreferredSize(new java.awt.Dimension(370, 100));
+        jScrollPane2.setViewportView(LComent);
+        LComent.setEditable(false);
+
+        JPfactura.add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 630, 380, 110));
 
         jLabel13.setIcon(new javax.swing.ImageIcon(getClass().getResource("/img/Factura_chica.png"))); // NOI18N
         JPfactura.add(jLabel13, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 612, 792));
@@ -236,7 +248,7 @@ public class Factura extends javax.swing.JFrame {
 
         jScrollPane1.setViewportView(JPfactura);
 
-        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 633, 700));
+        getContentPane().add(jScrollPane1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 633, 650));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -248,7 +260,7 @@ public class Factura extends javax.swing.JFrame {
 
         try {
             try {
-                writer = PdfWriter.getInstance(document, new FileOutputStream("my_factura.pdf"));
+                writer = PdfWriter.getInstance(document, new FileOutputStream(Data.getFOLIO()+".pdf"));
             } catch (FileNotFoundException ex) {
                 Logger.getLogger(Factura.class.getName()).log(Level.SEVERE, null, ex);
             }
@@ -266,6 +278,9 @@ public class Factura extends javax.swing.JFrame {
 
         // step 5: we close the document
         document.close();
+        JavaMail enviarCorreo = new JavaMail(Data.getFOLIO(), LEmail.getText());
+        enviarCorreo.run();
+        this.dispose();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
@@ -304,11 +319,11 @@ public class Factura extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel Firma_Cliente;
+    private javax.swing.JLabel JLcodigoQR;
     private javax.swing.JPanel JPfactura;
     private javax.swing.JLabel LCP;
     private javax.swing.JLabel LCant;
-    private javax.swing.JLabel LComent;
+    private javax.swing.JTextArea LComent;
     private javax.swing.JLabel LCost;
     private javax.swing.JLabel LDirec;
     private javax.swing.JLabel LEmail;
@@ -336,6 +351,7 @@ public class Factura extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JScrollPane jScrollPane1;
+    private javax.swing.JScrollPane jScrollPane2;
     // End of variables declaration//GEN-END:variables
 
    
